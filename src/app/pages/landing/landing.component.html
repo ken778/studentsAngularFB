@@ -1,0 +1,102 @@
+<!--<div class="addusers">
+  <form (ngSubmit)="AddUsers(UserData)" #UserData="ngForm">
+    <input name="name" ngModel #name="ngModel" />
+    <input name="surname" ngModel #surname="ngModel" />
+    <input name="gender" ngModel #gender="ngModel" />
+    <button type="submit">Add User</button>
+  </form>
+</div>-->
+
+<div class="register">
+  <h5>Student register</h5>
+  <div class="container">
+    <div class="list-container">
+      <p>Registered student list</p>
+      <div class="students" *ngFor="let item of students">
+        <div class="names">
+          {{ item.payload.doc.data().name }}
+          {{ item.payload.doc.data().surname }}
+        </div>
+
+        <div class="expand" (click)="editStudent(item)">
+          <a
+            class="back"
+            [routerLink]="['/', 'profile', item.payload.doc.id]"
+            routerLinkActive="router-link-active"
+            >Expand</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="register-container">
+      <p>Register student</p>
+      <form (ngSubmit)="AddUsers(UserData)" #UserData="ngForm">
+        <input
+          placeholder="Student name"
+          class="field"
+          name="name"
+          ngModel
+          #name="ngModel"
+          ngModel
+          required
+        />
+
+        <input
+          placeholder="Student surname"
+          class="field"
+          name="surname"
+          ngModel
+          #surname="ngModel"
+          ngModel
+          required
+        />
+
+        <textarea
+          placeholder="Student residential address"
+          class="address"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          name="address"
+          ngModel
+          #address="ngModel"
+          ngModel
+          required
+        ></textarea>
+
+        <input
+          placeholder="Student contact details"
+          class="field"
+          name="contact"
+          ngModel
+          #contact="ngModel"
+          ngModel
+          required
+        />
+        <input
+          placeholder="Student registered course"
+          class="field"
+          name="course"
+          ngModel
+          #course="ngModel"
+          ngModel
+          required
+        />
+        <button type="submit" [disabled]="UserData.invalid">Submit data</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--<div class="register-container">
+    <p>Student details</p>
+    <form [formGroup]="studentForm">
+      <input class="field" formControlName="name" />
+      <input class="field" formControlName="surname" />
+      <textarea class="address" rows="3" formControlName="address"></textarea>
+  
+      <input class="field" formControlName="contact" />
+      <input class="field" name="course" formControlName="course" />
+      <button>Remove student</button>
+      <button>Update student</button>
+    </form>
+  </div>-->

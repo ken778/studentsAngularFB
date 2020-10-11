@@ -1,0 +1,50 @@
+<div class="stud" *ngIf="Student">
+  <div class="register-container">
+    <p>Student details</p>
+    <form [formGroup]="studentForm">
+      <input
+        class="field"
+        formControlName="name"
+        value="={{ Student.name }}"
+        [(ngModel)]="Student.name"
+      />
+      <input
+        class="field"
+        formControlName="surname"
+        value="={{ Student.surname }}"
+        [(ngModel)]="Student.surname"
+      />
+      <textarea
+        class="address"
+        rows="3"
+        formControlName="address"
+        value="={{ Student.address }}"
+        [(ngModel)]="Student.address"
+      ></textarea>
+
+      <input
+        class="field"
+        formControlName="contact"
+        value="={{ Student.contact }}"
+        [(ngModel)]="Student.contact"
+      />
+      <input
+        class="field"
+        name="course"
+        formControlName="course"
+        value="={{ Student.course }}"
+        [(ngModel)]="Student.course"
+      />
+      <button class="remove" (click)="DeleteStu(Student.name)">
+        Remove student
+      </button>
+      <button class="update">Update student</button>
+    </form>
+  </div>
+</div>
+<div class="stud" *ngIf="Student">
+  <ul>
+    <li>{{ Student.name }}</li>
+    <li>{{ Student.surname }}</li>
+  </ul>
+</div>
