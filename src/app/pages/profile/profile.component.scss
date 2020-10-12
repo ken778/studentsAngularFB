@@ -14,11 +14,11 @@ form .field {
   display: flex;
 }
 .register-container {
-  width: 60%;
+  width: 55%;
   float: left;
   border: 1px black solid;
   margin-right: 2px;
-  margin-left: 3px;
+  margin-left: 13rem;
   padding: 1%;
 }
 .list-container {
@@ -40,7 +40,7 @@ form .update {
   border: none;
   padding: 2%;
   float: left;
-  margin-left: -10rem !important;
+  margin-left: -5rem !important;
   margin-top: 45px;
 }
 form .remove {
@@ -59,7 +59,7 @@ form .remove {
 form .address {
   margin-top: 2px;
   height: 100px;
-  width: 400px;
+  width: 600px;
 }
 .students {
   width: 90%;

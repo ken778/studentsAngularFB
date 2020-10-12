@@ -13,7 +13,7 @@ export class DatabaseService {
       .collection('Users')
       .add(data)
       .then((results) => {
-        console.log('added successfully');
+        alert('Added Successful!');
       })
       .catch((err) => {
         console.log('couldnt add user:', err);
@@ -29,7 +29,7 @@ export class DatabaseService {
   }
   //delete function
   DeleteStudent(ref) {
-    this._fire
+    return this._fire
       .collection('Users')
       .doc(ref)
       .delete()
@@ -39,5 +39,9 @@ export class DatabaseService {
       .catch((err) => {
         console.log('error occured, ', err);
       });
+  }
+  //update function
+  UpdateStudentInfo(ref, record) {
+    return this._fire.collection('Users').doc(ref).update(record);
   }
 }

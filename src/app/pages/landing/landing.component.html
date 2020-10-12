@@ -12,20 +12,25 @@
   <div class="container">
     <div class="list-container">
       <p>Registered student list</p>
-      <div class="students" *ngFor="let item of students">
-        <div class="names">
-          {{ item.payload.doc.data().name }}
-          {{ item.payload.doc.data().surname }}
-        </div>
+      <div *ngIf="students.length > 0">
+        <div class="students" *ngFor="let item of students">
+          <div class="names">
+            {{ item.payload.doc.data().name }}
+            {{ item.payload.doc.data().surname }}
+          </div>
 
-        <div class="expand" (click)="editStudent(item)">
-          <a
-            class="back"
-            [routerLink]="['/', 'profile', item.payload.doc.id]"
-            routerLinkActive="router-link-active"
-            >Expand</a
-          >
+          <div class="expand" (click)="editStudent(item)">
+            <a
+              class="back"
+              [routerLink]="['/', 'profile', item.payload.doc.id]"
+              routerLinkActive="router-link-active"
+              >Expand</a
+            >
+          </div>
         </div>
+      </div>
+      <div class="empty-array" *ngIf="students.length == 0">
+        <h4>You don't have any registered students</h4>
       </div>
     </div>
     <div class="register-container">
@@ -81,7 +86,9 @@
           ngModel
           required
         />
-        <button type="submit" [disabled]="UserData.invalid">Submit data</button>
+        <button class="Submit" type="submit" [disabled]="UserData.invalid">
+          Submit data
+        </button>
       </form>
     </div>
   </div>

@@ -40,7 +40,7 @@ form button {
   border: none;
   padding: 2%;
   float: left;
-  margin-left: -20.7rem !important;
+  margin-left: -24rem !important;
   margin-top: 45px;
 }
 .addusers {
@@ -49,7 +49,7 @@ form button {
 form .address {
   margin-top: 2px;
   height: 100px;
-  width: 400px;
+  width: 500px;
 }
 .students {
   width: 90%;
@@ -84,4 +84,7 @@ a {
   list-style: none;
   text-decoration: none;
   color: black;
+}
+.empty-array {
+  text-align: center;
 }

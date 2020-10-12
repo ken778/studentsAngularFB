@@ -1,4 +1,4 @@
-<div class="stud" *ngIf="Student">
+<!--<div class="stud" *ngIf="Student">
   <div class="register-container">
     <p>Student details</p>
     <form [formGroup]="studentForm">
@@ -35,10 +35,10 @@
         value="={{ Student.course }}"
         [(ngModel)]="Student.course"
       />
-      <button class="remove" (click)="DeleteStu(Student.name)">
-        Remove student
+      <button class="remove" (click)="DeleteStu()">Remove student</button>
+      <button class="update" (click)="UpdateStu(Student)">
+        Update student
       </button>
-      <button class="update">Update student</button>
     </form>
   </div>
 </div>
@@ -47,4 +47,65 @@
     <li>{{ Student.name }}</li>
     <li>{{ Student.surname }}</li>
   </ul>
+</div>-->
+<div class="stud" *ngIf="Student">
+  <div class="register-container">
+    <p>Student details</p>
+    <form (ngSubmit)="AddUsers(UserData)" #UserData="ngForm">
+      <input
+        [(ngModel)]="Student.name"
+        class="field"
+        name="name"
+        ngModel
+        #name="ngModel"
+        ngModel
+        required
+      />
+
+      <input
+        [(ngModel)]="Student.surname"
+        class="field"
+        name="surname"
+        ngModel
+        #surname="ngModel"
+        ngModel
+        required
+      />
+
+      <textarea
+        [(ngModel)]="Student.address"
+        class="address"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        name="address"
+        ngModel
+        #address="ngModel"
+        ngModel
+        required
+      ></textarea>
+
+      <input
+        [(ngModel)]="Student.contact"
+        class="field"
+        name="contact"
+        ngModel
+        #contact="ngModel"
+        ngModel
+        required
+      />
+      <input
+        [(ngModel)]="Student.course"
+        class="field"
+        name="course"
+        ngModel
+        #course="ngModel"
+        ngModel
+        required
+      />
+      <button class="remove" (click)="DeleteStu()">Remove student</button>
+      <button class="update" (click)="UpdateStu(Student)">
+        Update student
+      </button>
+    </form>
+  </div>
 </div>

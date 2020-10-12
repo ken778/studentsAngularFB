@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   //variable
   Student: any;
+  students: any;
   Ref: any;
   studentForm = new FormGroup({
     name: new FormControl(''),
@@ -24,8 +25,17 @@ export class ProfileComponent implements OnInit {
   });
 
   //delete student
-  DeleteStu(ref) {
-    this._data.DeleteStudent(ref);
+  DeleteStu() {
+    this.Ref = this._route.snapshot.paramMap.get('ref');
+    this._data.DeleteStudent(this.Ref);
+  }
+  //update student
+  UpdateStu() {
+    this.Student = this._data.getStudentInfo(this.Ref).subscribe((i) => {
+      this.Student = i;
+      console.log(this.Student);
+    });
+    this._data.UpdateStudentInfo(this.Ref, this.Student);
   }
   ngOnInit() {
     //get Student id
@@ -37,5 +47,14 @@ export class ProfileComponent implements OnInit {
       this.Student = i;
       console.log(this.Student);
     });
+
+    //return Students
+    this._data
+      .GetUsers()
+      .snapshotChanges()
+      .subscribe((action) => {
+        console.log(action);
+        this.students = action;
+      });
   }
 }
