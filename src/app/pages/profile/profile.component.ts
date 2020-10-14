@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { FormGroup, FormControl } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +24,17 @@ export class ProfileComponent implements OnInit {
     contact: new FormControl(''),
     course: new FormControl(''),
   });
+  AddUsers(UserData: NgForm) {
+    //this._data.Adduser(UserData.value);
+
+    this.Ref = this._route.snapshot.paramMap.get('ref');
+    //this.Student = this._data.getStudentInfo(this.Ref).subscribe((i) => {
+    //this.Student = i;
+    //console.log(this.Student);
+    //});
+
+    this._data.UpdateStudentInfo(this.Ref, UserData.value);
+  }
 
   //delete student
   DeleteStu() {
@@ -30,13 +42,7 @@ export class ProfileComponent implements OnInit {
     this._data.DeleteStudent(this.Ref);
   }
   //update student
-  UpdateStu() {
-    this.Student = this._data.getStudentInfo(this.Ref).subscribe((i) => {
-      this.Student = i;
-      console.log(this.Student);
-    });
-    this._data.UpdateStudentInfo(this.Ref, this.Student);
-  }
+
   ngOnInit() {
     //get Student id
     this.Ref = this._route.snapshot.paramMap.get('ref');

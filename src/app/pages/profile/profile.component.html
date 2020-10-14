@@ -5,34 +5,34 @@
       <input
         class="field"
         formControlName="name"
-        value="={{ Student.name }}"
+        value="{{ Student.name }}"
         [(ngModel)]="Student.name"
       />
       <input
         class="field"
         formControlName="surname"
-        value="={{ Student.surname }}"
+        value="{{ Student.surname }}"
         [(ngModel)]="Student.surname"
       />
       <textarea
         class="address"
         rows="3"
         formControlName="address"
-        value="={{ Student.address }}"
+        value="{{ Student.address }}"
         [(ngModel)]="Student.address"
       ></textarea>
 
       <input
         class="field"
         formControlName="contact"
-        value="={{ Student.contact }}"
+        value="{{ Student.contact }}"
         [(ngModel)]="Student.contact"
       />
       <input
         class="field"
         name="course"
         formControlName="course"
-        value="={{ Student.course }}"
+        value="{{ Student.course }}"
         [(ngModel)]="Student.course"
       />
       <button class="remove" (click)="DeleteStu()">Remove student</button>
@@ -53,6 +53,7 @@
     <p>Student details</p>
     <form (ngSubmit)="AddUsers(UserData)" #UserData="ngForm">
       <input
+        value="{{ Student.name }}"
         [(ngModel)]="Student.name"
         class="field"
         name="name"
@@ -63,6 +64,7 @@
       />
 
       <input
+        value="{{ Student.surname }}"
         [(ngModel)]="Student.surname"
         class="field"
         name="surname"
@@ -73,6 +75,7 @@
       />
 
       <textarea
+        value="{{ Student.address }}"
         [(ngModel)]="Student.address"
         class="address"
         id="exampleFormControlTextarea1"
@@ -85,6 +88,7 @@
       ></textarea>
 
       <input
+        value="{{ Student.contact }}"
         [(ngModel)]="Student.contact"
         class="field"
         name="contact"
@@ -94,6 +98,7 @@
         required
       />
       <input
+        value="{{ Student.course }}"
         [(ngModel)]="Student.course"
         class="field"
         name="course"
@@ -103,9 +108,7 @@
         required
       />
       <button class="remove" (click)="DeleteStu()">Remove student</button>
-      <button class="update" (click)="UpdateStu(Student)">
-        Update student
-      </button>
+      <button class="update" type="submit">Update student</button>
     </form>
   </div>
 </div>
