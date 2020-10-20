@@ -12,9 +12,13 @@ export class LandingComponent implements OnInit {
 
   //variables
   students: any;
+  details: any;
   AddUsers(UserData: NgForm) {
-    this._data.Adduser(UserData.value);
+    //this.details = UserData.value.name;
+    this._data.Adduser(UserData.value, UserData.value.name);
+    UserData.resetForm();
   }
+  //testing button
 
   ngOnInit() {
     //return Students
