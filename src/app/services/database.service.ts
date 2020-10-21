@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
+import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -28,10 +30,16 @@ export class DatabaseService {
             .collection('Users')
             .add(data)
             .then((results) => {
-              alert('Added Successful!');
+              Swal.fire({
+                title: 'Student added successfuly',
+                icon: 'success',
+              });
             });
         } else {
-          alert('Student already exist!');
+          Swal.fire({
+            title: 'Student already exist!',
+            icon: 'error',
+          });
         }
       });
   }
@@ -49,11 +57,14 @@ export class DatabaseService {
       .collection('Users')
       .doc(ref)
       .delete()
+      .then((resu) => {
+        Swal.fire({
+          title: 'Deleted successfully',
+          icon: 'success',
+        });
+      })
       .then((results) => {
         this.route.navigate(['/landing']);
-      })
-      .catch((err) => {
-        console.log('error occured, ', err);
       });
   }
   //update function
@@ -63,7 +74,10 @@ export class DatabaseService {
       .doc(ref)
       .update(record)
       .then((results) => {
-        alert('Details updated successfully');
+        Swal.fire({
+          title: 'Details updated successfully',
+          icon: 'success',
+        });
       })
       .then((results) => {
         this.route.navigate(['/landing']);

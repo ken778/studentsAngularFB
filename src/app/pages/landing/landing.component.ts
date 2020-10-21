@@ -1,6 +1,8 @@
 import { DatabaseService } from './../../services/database.service';
 import { Component, OnInit } from '@angular/core';
 
+import Swal from 'sweetalert2';
+
 import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-landing',
@@ -19,7 +21,9 @@ export class LandingComponent implements OnInit {
     UserData.resetForm();
   }
   //testing button
-
+  /*openSweet() {
+    Swal.fire('Oops...', 'Something went wrong!', 'error');
+  }*/
   ngOnInit() {
     //return Students
     this._data

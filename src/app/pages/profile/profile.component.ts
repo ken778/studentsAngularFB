@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -24,14 +26,10 @@ export class ProfileComponent implements OnInit {
     contact: new FormControl(''),
     course: new FormControl(''),
   });
-  AddUsers(UserData: NgForm) {
-    //this._data.Adduser(UserData.value);
 
+  //updating student details
+  AddUsers(UserData: NgForm) {
     this.Ref = this._route.snapshot.paramMap.get('ref');
-    //this.Student = this._data.getStudentInfo(this.Ref).subscribe((i) => {
-    //this.Student = i;
-    //console.log(this.Student);
-    //});
 
     this._data.UpdateStudentInfo(this.Ref, UserData.value);
   }
